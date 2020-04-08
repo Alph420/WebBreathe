@@ -11,7 +11,7 @@ $module_date_end;
 
 ?>
 
-<div class="container">
+<div class="container border border-primary py-3 rounded">
 
     <form action="ajouterModule.php" method="POST">
 
@@ -67,14 +67,14 @@ $module_date_end;
 
             <div class="form-group">
                 <label for="inputDateStart">Date de mise en place</label>
-                <input type="text" class="form-control" id="inputDateStart" name="inputDateStart" placeholder="yyyy/MM/dd">
+                <input type="date" class="form-control" id="inputDateStart" name="inputDateStart" placeholder="yyyy/MM/dd">
             </div>
 
             &nbsp;&nbsp;&nbsp;&nbsp;
 
             <div class="form-group">
                 <label for="inputDateEnd">Date d'expiration</label>
-                <input type="text" class="form-control" id="inputDateEnd" name="inputDateEnd" placeholder="yyyy/MM/dd">
+                <input type="date" class="form-control" id="inputDateEnd" name="inputDateEnd" placeholder="yyyy/MM/dd">
             </div>
         </div>
 
@@ -94,17 +94,16 @@ $module_date_end;
 if(isset($_POST['submit'])){
     
 $nomModule = $_POST['inputNameModule'];
-$numero_module = $_POST['inputNameModule'];
-$description_module = $_POST['inputNameModule'];
-$type_module = $_POST['inputNameModule'];
-$module_frequence_entretien = $_POST['inputNameModule'];
-$module_frequence_format = $_POST['inputFormatFrequence'];
-$module_date_start = $_POST['inputNameModule'];
-$module_date_end=$_POST['inputNameModule'];
+$numero_module = $_POST['inputSerialNumber'];
+$description_module = $_POST['inputDescriptionModule'];
+$type_module = $_POST['inputTypeModule'];
+$module_frequence_entretien = $_POST['inputFrequence'].$_POST['inputFormatFrequence'];
+$module_date_start = $_POST['inputDateStart'];
+$module_date_end=$_POST['inputDateEnd'];
 
 
 if($query = mysqli_query($conn,"INSERT INTO `module`(`nom_module`, `numero_module`, `description_module`, `type_module`, `module_frequence_enntretien`, `module_date_start`, `module_date_end`)
-VALUES ('$nomModule','$numero_module','$description_module','$type_module','$module_frequence_entretien.$module_frequence_format','$module_date_start','$module_date_end')")){
+VALUES ('$nomModule','$numero_module','$description_module','$type_module','$module_frequence_entretien','$module_date_start','$module_date_end')")){
     echo "Success";
 }else{
     echo "Failure" . mysqli_error($conn);
