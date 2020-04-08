@@ -26,14 +26,11 @@
         <link rel="icon" type="image/x-icon" href="/images/icone.ico" />
         <link rel="shortcut icon" type="image/x-icon" href="/images/icone.ico" />
 
-        <meta http-equiv="refresh" content="5" >
-
     <title>WebBreathe</title>
 
 </head>
 
 <body>
-
     <nav class="navbar navbar-expand-lg navbar-light bg-primary">
         <a class="navbar-brand text-light font-weight-bold" href="index.php">WebBreathe</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
